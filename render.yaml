@@ -4,7 +4,7 @@ services:
     runtime: docker
     region: frankfurt
     plan: standard
-    dockerCommand: sh -c "mkdir -p /data/.openclaw && [ ! -f /data/.openclaw/openclaw.json ] && echo '{\"gateway\":{\"controlUi\":{\"dangerouslyAllowHostHeaderOriginFallback\":true}}}' > /data/.openclaw/openclaw.json; exec node openclaw.mjs gateway --allow-unconfigured --bind lan --port $PORT"    
+    dockerCommand: mkdir -p /data/.openclaw && echo eyJnYXRld2F5Ijp7ImNvbnRyb2xVaSI6eyJkYW5nZXJvdXNseUFsbG93SG9zdEhlYWRlck9yaWdpbkZhbGxiYWNrIjp0cnVlfX19 | base64 -d > /data/.openclaw/openclaw.json && node openclaw.mjs gateway --allow-unconfigured --bind lan --port $PORT    
     healthCheckPath: /health
     envVars:
       - key: PORT
