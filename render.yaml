@@ -4,6 +4,7 @@ services:
     runtime: docker
     region: frankfurt
     plan: standard
+    dockerCommand: node dist/index.js gateway --allow-unconfigured --bind lan --port $PORT
     healthCheckPath: /health
     envVars:
       - key: PORT
